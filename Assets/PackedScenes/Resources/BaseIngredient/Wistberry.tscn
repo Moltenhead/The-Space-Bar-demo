@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/PackedScenes/Resources/BaseIngredient/BaseIngredient.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sprites/Wistberry1.png" type="Texture" id=2]
+
+[node name="Wistberry" instance=ExtResource( 1 )]
+ingredient_name = "wistberry"
+cocktail_color = Color( 0.04, 0.42, 0.86, 0.35 )
+ingredient_texture = ExtResource( 2 )

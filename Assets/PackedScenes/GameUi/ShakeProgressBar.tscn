@@ -1,0 +1,86 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/ShakeBar0.png" type="Texture" id=1]
+[ext_resource path="res://Assets/PackedScenes/GameUi/ShakeProgressBar.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/ShakeProgress0.png" type="Texture" id=3]
+
+[node name="ShakeProgressBar" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect6" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = 4.95534
+margin_top = 4.01147
+margin_right = 44.9553
+margin_bottom = 44.0115
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect5" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = 28.0803
+margin_top = 4.4834
+margin_right = 68.0803
+margin_bottom = 44.4834
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = 51.2052
+margin_top = 4.01147
+margin_right = 91.2052
+margin_bottom = 44.0115
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = 73.8582
+margin_top = 4.4834
+margin_right = 113.858
+margin_bottom = 44.4834
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = 96.7471
+margin_top = 4.01146
+margin_right = 136.747
+margin_bottom = 44.0115
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+show_behind_parent = true
+margin_left = 119.636
+margin_top = 4.24743
+margin_right = 159.636
+margin_bottom = 44.2474
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

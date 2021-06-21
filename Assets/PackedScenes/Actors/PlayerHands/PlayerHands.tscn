@@ -1,0 +1,445 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/PackedScenes/Actors/PlayerHands/PlayerHand.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/PackedScenes/Actors/PlayerHands/PlayerHands.gd" type="Script" id=2]
+[ext_resource path="res://Assets/PackedScenes/Resources/BaseCocktail/BaseCocktail.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=2]
+resource_name = "CatchLeft"
+length = 0.3
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("RightHand:translation:z")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25, 0.3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("RightHand:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -0.0496362, -0.25, -0.416554, 0.0417285, 0.0695286, 0.2, -0.165239, 0.121678, 0.0277551, -0.0204381, 0, -0.0235489, 0.0144757, 0.0181795, -0.0111751 ),
+"times": PoolRealArray( 0, 0.25, 0.3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("RightHand:translation:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -0.964512, -0.25, -5.26924, 0.0299923, 0.632147, 1, -0.145679, 0.465366, 0.0251471, -0.0803314, -0.5, -1.27803e-05, 0.000255716, 0.0103554, -0.207198 ),
+"times": PoolRealArray( 0, 0.25, 0.3 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("LeftHand:translation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0.5, -0.25, -0.676947, 0.0273843, 0.0741509, 0.685386, -0.0343902, 0.0941809, 0.0256008, -0.0701105, 0.5, -0.0457172, 0.0656861, 0.0286117, -0.041109 ),
+"times": PoolRealArray( 0, 0.2, 0.3 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHand:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 1, 2, 0 ]
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("LeftHand:translation:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0.799652, 0.089977, -0.287801, -0.195752, -0.0369982, -0.0703129, 0.000325268, 0.000618152, 0, -0.0378931, 0.0041095, 0.0481719, -0.00522423 ),
+"times": PoolRealArray( 0, 0.2, 0.3 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("LeftHand:translation:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("LeftHand:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "CatchRight"
+length = 0.3
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("LeftHand:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.965, -0.25, 4.17137, 0.0339044, -0.565711, -1, -0.169151, -0.653097, 0.0277551, 0.107163, 0.5, -0.00529271, -0.348639, 0.25, 16.4679 ),
+"times": PoolRealArray( 0, 0.25, 0.3 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("LeftHand:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -0.05, -0.25, -1.10724, 0.0391204, 0.173262, 0.2, -0.150895, 0.123851, 0.0316671, -0.0259915, 0, -0.0118128, 0.0648149, 0.25, -1.37171 ),
+"times": PoolRealArray( 0, 0.25, 0.3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("LeftHand:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25, 0.3 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LeftHand:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05, 0.15, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHand:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1, 2, 1, 0 ]
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("RightHand:translation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.2, 0.3 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("RightHand:translation:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0.615629, 0.0456405, -0.112391, -0.196, -0.0982869, -0.100079, 0.000353737, 0.000360185, 0, -0.0209409, -0.0655587, 0.0455638, 0.142645 ),
+"times": PoolRealArray( 0, 0.2, 0.3 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("RightHand:translation:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( -0.5, -0.25, 0.421603, 0.0652007, -0.109955, -0.685, -0.0330861, -0.0210457, 0.000259157, 0.000164847, -0.5, -0.026157, -0.10122, 0.25, 0.967428 ),
+"times": PoolRealArray( 0, 0.2, 0.3 )
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+length = 1.5
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("LeftHand:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.48, -0.00145447, 0.717607, -0.49, -0.0168509, 0.38, -0.00421274, 0.5, -0.38, 0.0153964, 0.2, -0.0590218 ),
+"times": PoolRealArray( 0, 0.8, 1.5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("LeftHand:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.1, 0.0592153, 0.111104, -0.25, 0, 0.25, -0.029255, -0.037609, -0.43, 0.11585, 0.15, -0.0261101, 0, -0.12, -0.066864, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 1, 1.5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("LeftHand:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.5, 0.8, 1.2, 1.5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("RightHand:translation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4, 0.7, 1.2, 1.5 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RightHand:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("RightHand:translation:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0.007, -0.25, 0, 0.04, -0.0423466, -0.0631311, -0.2, 0.00243792, 0.39, -0.00169009, 0.107523, -0.36, -0.0219413, 0.21, -0.00731375, 0.007, -0.04, 0.0590785, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.3, 1, 1.5 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("RightHand:translation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( -0.833, -0.25, 0, 0.49, -0.00216311, -0.68213, -0.37, -0.00507897, 0.48, 0.00169301, -0.833, -0.36, 0.000762343, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.7, 1.5 )
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("LeftHand:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "TakeGlass"
+length = 0.25
+step = 0.025
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("LeftHand:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0.572973, 0.0521606, -0.119546, 0.2, -0.105254, -0.211889, 0.25, 0.503278 ),
+"times": PoolRealArray( 0, 0.25 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("LeftHand:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0, -0.25, -0.899932, 0.0456405, 0.164293, 0.4, -0.0661339, 0.173769, 0.000629668, -0.00165448 ),
+"times": PoolRealArray( 0, 0.25 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("LeftHand:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("RightHand:translation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -0.5, -0.25, 1.00732, 0.121273, -0.488646, -0.933598, -0.0974303, -0.224724, 0.103388, 0.238465, -0.2, -0.124444, 0.175752, 0.25, -0.353076 ),
+"times": PoolRealArray( 0, 0.125, 0.25 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("RightHand:translation:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.249996, 3.88724, 0.0652007, -1.01382, -0.896188, -0.0428471, -0.659964, 0.00192845, 0.0297034, 0, -0.067438, 0.443801, 0.00151268, -0.00995479 ),
+"times": PoolRealArray( 0, 0.125, 0.25 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("RightHand:translation:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.125, 0.25 )
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("RightHand:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.025, 0.125 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 3 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("LeftHand:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("RightHand:rotation_degrees:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.125, 0.25 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("RightHand:rotation_degrees:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.125, 0.25 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("RightHand:rotation_degrees:z")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0.000237554, -0.25, -0.23479, 0.0156482, 0.0146962, 0, -0.00503066, 0.0423665, 0.00185598, -0.0156304, -10, -0.0883022, -1.87751, 0.25, 5.31558 ),
+"times": PoolRealArray( 0, 0.125, 0.25 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("LeftHand:rotation_degrees:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
+}
+tracks/12/type = "bezier"
+tracks/12/path = NodePath("LeftHand:rotation_degrees:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.25 )
+}
+tracks/13/type = "bezier"
+tracks/13/path = NodePath("LeftHand:rotation_degrees:z")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"points": PoolRealArray( 0.000349641, -0.249999, -25.0522, 0.0104321, 1.04539, 10, -0.124815, 1.80061, 0.0290591, -0.419214 ),
+"times": PoolRealArray( 0, 0.25 )
+}
+
+[node name="PlayerHands" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="LeftHand" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.295442, -0.0520944, 0, 0.0520944, 0.295442, 0, 0, 0, 0.3, 0.2, 0.4, 0 )
+playing = true
+
+[node name="RightHand" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.295442, 0.0520945, 0, -0.0520945, 0.295442, 0, 0, 0, 0.3, -0.2, 0, 0 )
+flip_h = true
+frame = 3
+
+[node name="Cocktail" parent="RightHand" instance=ExtResource( 3 )]
+transform = Transform( 0.999391, 0.0348995, 0, -0.0348995, 0.999391, 0, 0, 0, -1, 0.05, -0.05, -0.01 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+anims/CatchLeft = SubResource( 2 )
+anims/CatchRight = SubResource( 3 )
+anims/Idle = SubResource( 1 )
+anims/TakeGlass = SubResource( 4 )
+
+[editable path="RightHand/Cocktail"]

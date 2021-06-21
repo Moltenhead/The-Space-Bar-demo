@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/PackedScenes/Camera/PlayerCamera/PlayerCamera.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Environments/TheSpaceBar.tres" type="Environment" id=2]
+[ext_resource path="res://Assets/Scenes/TestRoom.gd" type="Script" id=3]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="PlayerCamera" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.7, 0 )
+
+[node name="MeetingPlace" parent="PlayerCamera/MeetingArea" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.5, -0.7, 0 )
+
+[node name="Spawn" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25 )
+
+[editable path="PlayerCamera"]
+[editable path="PlayerCamera/InteractionArea"]

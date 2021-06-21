@@ -1,0 +1,90 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/PackedScenes/Actors/BaseActor/BaseActor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/BaseFSMStateTransition/BaseFSMStateTransition.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMConditions/bh_IfNearToTarget.gd" type="Script" id=3]
+[ext_resource path="res://Assets/PackedScenes/Actors/CopActor.gd" type="Script" id=4]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/BaseFSMState/BaseFSMState.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMBehaviours/bh_DefineRandomWalkAsTarget.gd" type="Script" id=6]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMBehaviours/bh_GoToTarget.gd" type="Script" id=7]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMBehaviours/bh_DoNothing.gd" type="Script" id=8]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMBehaviours/bh_DefineSpawnAsTarget.gd" type="Script" id=9]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMBehaviours/bh_RemoveCop.gd" type="Script" id=10]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMBehaviours/bh_DoNothingTick.gd" type="Script" id=11]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMConditions/bh_IfMoreThan15SecondsPasses.gd" type="Script" id=12]
+[ext_resource path="res://Assets/PackedScenes/Actors/FiniteStateMachines/FSMStates/FSMConditions/bh_IfMoreThan5SecondsPassesThenReset.gd" type="Script" id=13]
+
+[node name="Actor" instance=ExtResource( 1 )]
+script = ExtResource( 4 )
+role = "cop"
+contentment = 0
+
+[node name="FSM" parent="." index="0"]
+initial_state = NodePath("WalkAround")
+
+[node name="WalkAround" parent="FSM" index="0" instance=ExtResource( 5 )]
+
+[node name="If15Sec" parent="FSM/WalkAround/StateTransitions" index="0" instance=ExtResource( 2 )]
+target_state_path = NodePath("../../../GoToSpawn")
+
+[node name="IStateTransitionCondition" parent="FSM/WalkAround/StateTransitions/If15Sec" index="0"]
+script = ExtResource( 12 )
+
+[node name="If5SecRepeat" parent="FSM/WalkAround/StateTransitions" index="1" instance=ExtResource( 2 )]
+target_state_path = NodePath("../..")
+
+[node name="IStateTransitionCondition" parent="FSM/WalkAround/StateTransitions/If5SecRepeat" index="0"]
+script = ExtResource( 13 )
+
+[node name="IfNearEnough" parent="FSM/WalkAround/StateTransitions" index="2" instance=ExtResource( 2 )]
+target_state_path = NodePath("../..")
+
+[node name="IStateTransitionCondition" parent="FSM/WalkAround/StateTransitions/IfNearEnough" index="0"]
+script = ExtResource( 3 )
+
+[node name="IStart" parent="FSM/WalkAround" index="1"]
+script = ExtResource( 6 )
+
+[node name="IExecute" parent="FSM/WalkAround" index="2"]
+script = ExtResource( 7 )
+
+[node name="IEnd" parent="FSM/WalkAround" index="3"]
+script = ExtResource( 8 )
+
+[node name="GoToSpawn" parent="FSM" index="1" instance=ExtResource( 5 )]
+
+[node name="IfNearEnough" parent="FSM/GoToSpawn/StateTransitions" index="0" instance=ExtResource( 2 )]
+target_state_path = NodePath("../../../Leave")
+
+[node name="IStateTransitionCondition" parent="FSM/GoToSpawn/StateTransitions/IfNearEnough" index="0"]
+script = ExtResource( 3 )
+
+[node name="IStart" parent="FSM/GoToSpawn" index="1"]
+script = ExtResource( 9 )
+
+[node name="IExecute" parent="FSM/GoToSpawn" index="2"]
+script = ExtResource( 7 )
+
+[node name="IEnd" parent="FSM/GoToSpawn" index="3"]
+script = ExtResource( 8 )
+
+[node name="Leave" parent="FSM" index="2" instance=ExtResource( 5 )]
+
+[node name="IStart" parent="FSM/Leave" index="1"]
+script = ExtResource( 10 )
+
+[node name="IExecute" parent="FSM/Leave" index="2"]
+script = ExtResource( 11 )
+
+[node name="IEnd" parent="FSM/Leave" index="3"]
+script = ExtResource( 8 )
+
+[editable path="FSM"]
+[editable path="FSM/WalkAround"]
+[editable path="FSM/WalkAround/StateTransitions/If15Sec"]
+[editable path="FSM/WalkAround/StateTransitions/If5SecRepeat"]
+[editable path="FSM/WalkAround/StateTransitions/IfNearEnough"]
+[editable path="FSM/GoToSpawn"]
+[editable path="FSM/GoToSpawn/StateTransitions/IfNearEnough"]
+[editable path="FSM/Leave"]
+[editable path="IdeaBubble"]

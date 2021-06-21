@@ -1,0 +1,121 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Assets/Scripts/Controllers/ctrl_PlayerController.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Scripts/Utilities/PlayerStateManager/PlayerStateManager.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scripts/Utilities/PlayerState/PlayerState.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/Start/bh_DoNothing.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/End/bh_DoNothing.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/Execute/bh_DoNothing.gd" type="Script" id=6]
+[ext_resource path="res://Assets/Scripts/Utilities/StateTransition/StateTransition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Scripts/Utilities/TransitionConditions/bh_IfCatchRecoveryIsDone.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/Execute/bh_HandleCatching.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/Start/bh_HandleShakingStart.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/End/bh_HandleGlassDisposing.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/Start/bh_EnableIngredientUi.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Scripts/Utilities/TransitionConditions/bh_IfCocktailIsFull.gd" type="Script" id=13]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/End/bh_HandleShakeProgressBarOut.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Scripts/Utilities/TransitionConditions/bh_IfFullyShaked.gd" type="Script" id=15]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/Start/bh_HideUi.gd" type="Script" id=16]
+[ext_resource path="res://Assets/Scripts/Utilities/StateBehaviours/End/bh_ShowUi.gd" type="Script" id=17]
+
+[node name="PlayerController" type="Node"]
+script = ExtResource( 1 )
+
+[node name="StateManager" parent="." instance=ExtResource( 2 )]
+initial_state = NodePath("Inactive")
+
+[node name="Inactive" parent="StateManager" instance=ExtResource( 3 )]
+state_name = "inactive"
+
+[node name="IStart" parent="StateManager/Inactive" index="1"]
+script = ExtResource( 16 )
+
+[node name="IExecute" parent="StateManager/Inactive" index="2"]
+script = ExtResource( 6 )
+
+[node name="IEnd" parent="StateManager/Inactive" index="3"]
+script = ExtResource( 17 )
+
+[node name="Waiting" parent="StateManager" instance=ExtResource( 3 )]
+state_name = "waiting"
+
+[node name="IStart" parent="StateManager/Waiting" index="1"]
+script = ExtResource( 4 )
+
+[node name="IExecute" parent="StateManager/Waiting" index="2"]
+script = ExtResource( 6 )
+
+[node name="IEnd" parent="StateManager/Waiting" index="3"]
+script = ExtResource( 5 )
+
+[node name="Mixing" parent="StateManager" instance=ExtResource( 3 )]
+state_name = "mixing"
+
+[node name="IfCocktailIsFull" parent="StateManager/Mixing/StateTransitions" index="0" instance=ExtResource( 7 )]
+target_state_path = NodePath("../../../Shaking")
+
+[node name="IStateTransitionCondition" parent="StateManager/Mixing/StateTransitions/IfCocktailIsFull" index="0"]
+script = ExtResource( 13 )
+
+[node name="IStart" parent="StateManager/Mixing" index="1"]
+script = ExtResource( 12 )
+
+[node name="IExecute" parent="StateManager/Mixing" index="2"]
+script = ExtResource( 6 )
+
+[node name="IEnd" parent="StateManager/Mixing" index="3"]
+script = ExtResource( 11 )
+
+[node name="Shaking" parent="StateManager" instance=ExtResource( 3 )]
+state_name = "shaking"
+
+[node name="IfFullyShaked" parent="StateManager/Shaking/StateTransitions" index="0" instance=ExtResource( 7 )]
+target_state_path = NodePath("../../../Waiting")
+
+[node name="IStateTransitionCondition" parent="StateManager/Shaking/StateTransitions/IfFullyShaked" index="0"]
+script = ExtResource( 15 )
+
+[node name="IStart" parent="StateManager/Shaking" index="1"]
+script = ExtResource( 10 )
+
+[node name="IExecute" parent="StateManager/Shaking" index="2"]
+script = ExtResource( 6 )
+
+[node name="IEnd" parent="StateManager/Shaking" index="3"]
+script = ExtResource( 14 )
+
+[node name="Reloading" parent="StateManager" instance=ExtResource( 3 )]
+state_name = "reloading"
+
+[node name="Catching" parent="StateManager" instance=ExtResource( 3 )]
+state_name = "catching"
+
+[node name="IfRecoveryIsDone" parent="StateManager/Catching/StateTransitions" index="0" instance=ExtResource( 7 )]
+target_state_path = NodePath("../../../Waiting")
+
+[node name="IStateTransitionCondition" parent="StateManager/Catching/StateTransitions/IfRecoveryIsDone" index="0"]
+script = ExtResource( 8 )
+
+[node name="IStart" parent="StateManager/Catching" index="1"]
+script = ExtResource( 4 )
+
+[node name="IExecute" parent="StateManager/Catching" index="2"]
+script = ExtResource( 9 )
+
+[node name="IEnd" parent="StateManager/Catching" index="3"]
+script = ExtResource( 5 )
+
+[node name="SpaceVision" parent="StateManager" instance=ExtResource( 3 )]
+state_name = "space_vision"
+state_layer = 1
+
+[editable path="StateManager/Inactive"]
+[editable path="StateManager/Waiting"]
+[editable path="StateManager/Mixing"]
+[editable path="StateManager/Mixing/StateTransitions/IfCocktailIsFull"]
+[editable path="StateManager/Shaking"]
+[editable path="StateManager/Shaking/StateTransitions/IfFullyShaked"]
+[editable path="StateManager/Reloading"]
+[editable path="StateManager/Catching"]
+[editable path="StateManager/Catching/StateTransitions/IfRecoveryIsDone"]
+[editable path="StateManager/SpaceVision"]

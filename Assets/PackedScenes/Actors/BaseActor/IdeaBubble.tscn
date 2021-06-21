@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sprites/Bubble0.png" type="Texture" id=2]
+
+[node name="IdeaBubble" type="Spatial"]
+
+[node name="Bubble" type="Sprite3D" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Sprite3D" type="Sprite3D" parent="Bubble"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.02 )

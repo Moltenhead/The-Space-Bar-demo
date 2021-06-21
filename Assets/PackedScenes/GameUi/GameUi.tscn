@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/PackedScenes/GameUi/GameUi.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Coin0.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Pill0.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/MinecraftFifty-Solid.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/PackedScenes/GameUi/ShakeProgressBar.tscn" type="PackedScene" id=5]
+
+[node name="GameUi" type="Node2D"]
+script = ExtResource( 1 )
+font = ExtResource( 4 )
+pill_texture = ExtResource( 3 )
+texture_rect_ratio = 0.1
+
+[node name="Coin" type="TextureRect" parent="."]
+margin_right = 160.0
+margin_bottom = 160.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GlassesContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PillsContainer" type="HBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShakeProgressBar" parent="." instance=ExtResource( 5 )]
+visible = false

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Sprites/SpriteFrames/BarHand_spriteframes.tres" type="SpriteFrames" id=1]
+
+[node name="PlayerHand" type="AnimatedSprite3D"]
+frames = ExtResource( 1 )
